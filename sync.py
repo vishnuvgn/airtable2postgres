@@ -5,7 +5,7 @@ load_dotenv()
 def getRecords(baseId, tableIdOrName):
     url = f"https://api.airtable.com/v0/{baseId}/{tableIdOrName}"
     headers = {
-        "Authorization": "Bearer pat6mSt609F0ELwEr.fa65ea019588625a6204ceaed6c22f0d8d5add6517f1798ec963a7dd9e9d40ef"
+        "Authorization": f"Bearer {os.getenv('AIRTABLE_API_KEY')}"
     }
 
     count = 0
@@ -37,7 +37,10 @@ def whittle(syncFields, totalRecords):
         whittledRecord["fields"] = {}
         for sfield in syncFields:
             if sfield not in fields:
-                whittledRecord["fields"][sfield] = None
+                if sfield[-3:] == "M2M":
+                    whittledRecord["fields"][sfield] = []
+                else:
+                    whittledRecord["fields"][sfield] = None
             else:
                 whittledRecord["fields"][sfield] = fields[sfield]
             

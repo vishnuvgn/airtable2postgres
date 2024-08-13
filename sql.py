@@ -52,23 +52,25 @@ input: string
 output: string
 fields and tables are surrounded by double quotes to preserve case sensitivity in pgdb
 '''
-def writeQuery(table, cols):
+def writeQuery(table, cols, num_rows=1):
     pgTablePk = formatName.createPrimaryKey(table)
     columnsQuery = '('
-    placeholders = '('
+    placeholders = ''
     numOfFields = len(cols)
     for i in range(numOfFields):
         col = cols[i]
         if i == numOfFields - 1: # last field
             columnsQuery += f', "{col}")'
-            placeholders += '%s)'
+            # placeholders += '%s)'
         elif i == 0: # first field
             columnsQuery += f'"{col}"'
-            placeholders += '%s, '
+            # placeholders += '%s, '
         else:
             columnsQuery += f', "{col}"'
-            placeholders += '%s, '
+            # placeholders += '%s, '
 
+    row_placeholders = '(' + ', '.join(['%s'] * numOfFields) + ')'
+    placeholders = ', '.join([row_placeholders] * num_rows)
     # fieldnames / excluded query
     excludedQuery = ''
     first = True
@@ -81,18 +83,21 @@ def writeQuery(table, cols):
             excludedQuery += f'"{col}" = excluded."{col}"'
             first = False
             
-
-    # Prepare the SQL query
-
-    query = '''
-    INSERT INTO "''' + table + '''" ''' + columnsQuery + '''
-    VALUES ''' + placeholders + '''
-    ON CONFLICT ("''' + pgTablePk + '''") DO UPDATE
-    SET ''' + excludedQuery + ''';'''
+    
+    query = f'''
+    INSERT INTO "{table}" {columnsQuery}
+    VALUES {placeholders}
+    ON CONFLICT ("{pgTablePk}") DO UPDATE
+    SET {excludedQuery};'''
+    # query = '''
+    # INSERT INTO "''' + table + '''" ''' + columnsQuery + '''
+    # VALUES ''' + placeholders + '''
+    # ON CONFLICT ("''' + pgTablePk + '''") DO UPDATE
+    # SET ''' + excludedQuery + ''';'''
 
     return query
     
-def upsertRow(table, cols, values):
+def upsertRows(table, cols, values):
     conn = psycopg2.connect(
         host=PG_HOST,
         database=PG_DATABASE,
@@ -101,11 +106,14 @@ def upsertRow(table, cols, values):
     )
     cur = conn.cursor()
     
-    query = writeQuery(table, cols)
+    num_rows = len(values)
+    flattened_values = tuple([item for sublist in values for item in sublist])
+
+    query = writeQuery(table, cols, num_rows)
     
     
     cur.execute(f"SET search_path TO {PG_SCHEMA}")
-    cur.execute(query, values)
+    cur.execute(query, flattened_values)
     conn.commit()
     cur.close()
     conn.close()
@@ -296,6 +304,7 @@ def clearTable(table):
     conn.commit()
     cur.close()
     conn.close()
+    print(f'cleared {table}')
 
 def createTables():
     tbls = list(PG_TABLE_FIELDS.keys())
