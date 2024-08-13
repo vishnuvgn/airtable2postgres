@@ -1,0 +1,153 @@
+{
+    "Members": [
+        "Name",
+        "DODID",
+        "Home Phone",
+        "SSN",
+        "Date of Birth",
+        "Date Arrived at Station (DAS)",
+        "Age",
+        "Personal Email",
+        "Military Email",
+        "Home Address",
+        "Gender",
+        "Personal Tagline",
+        "JobTitle",
+        "aws s3 link",
+        "Complete Glide Member URL",
+        "Readiness Score",
+        "hasConflict",
+        "Roles_fk",
+        "Jobs_fk",
+        "Groups_fk",
+        "Squadrons_fk",
+        "Skills_M2M"
+    ],
+    "Requirements": [
+        "Requirements",
+        "Members_fk",
+        "AppointmentType_fk",
+        "Status",
+        "isBooked"
+    ],
+    "Squadrons": [
+        "Squadron",
+        "Supervisor Name",
+        "Squadron Readiness Status",
+        "Image URL",
+        "Groups_fk"
+    ],
+    "Groups": [
+        "Group",
+        "Supervisor Name",
+        "Group Readiness Status",
+        "Image URL"
+    ],
+    "AppointmentType": [
+        "Name",
+        "Duration Minutes"
+    ],
+    "Rifle Training": [
+        "Member",
+        "Completed Date",
+        "Expiration Date",
+        "Status",
+        "Members_fk"
+    ],
+    "M249 Training": [
+        "Member",
+        "Completed Date",
+        "Expiration Date",
+        "Status",
+        "Members_fk"
+    ],
+    "M4 Training": [
+        "Member",
+        "Completed Date",
+        "Expiration Date",
+        "Status",
+        "Members_fk"
+    ],
+    "Grenade Training": [
+        "Member",
+        "Completed Date",
+        "Expiration Date",
+        "Status",
+        "Members_fk"
+    ],
+    "M240 Training": [
+        "Member",
+        "Completed Date",
+        "Expiration Date",
+        "Status",
+        "Members_fk"
+    ],
+    "Roles": [
+        "Role Title",
+        "Role Description"
+    ],
+    "Jobs": [
+        "Job Title",
+        "Description",
+        "Squadrons_fk"
+    ],
+    "Vehicle Equipment": [
+        "Name",
+        "Description",
+        "Model",
+        "Manufacturer",
+        "SerialNumber",
+        "Acquisition Date",
+        "Condition",
+        "Last Maintenance Date",
+        "Next Maintenance Date"
+    ],
+    "Maintenance Equipment": [
+        "Name",
+        "Description",
+        "Model",
+        "Manufacturer",
+        "Serial Number",
+        "Acquisition Date",
+        "Condition",
+        "Last Maintenance Date",
+        "Next Maintenance Date"
+    ],
+    "Communications Equipment": [
+        "Name",
+        "Description",
+        "Model",
+        "Manufacturer",
+        "Serial Number",
+        "Acquisition Date",
+        "Condition",
+        "Last Maintenance Date",
+        "Next Maintenance Date"
+    ],
+    "Aircraft Equipment": [
+        "Name",
+        "Description",
+        "Model",
+        "Manufacturer",
+        "Serial Number",
+        "Acquisition Date",
+        "Condition",
+        "Last Maintenance Date",
+        "Next Maintenance Date"
+    ],
+    "Slots": [
+        "Slot ID",
+        "Start Time",
+        "End Time",
+        "SlotCapacity",
+        "SlotUsed",
+        "isBooked",
+        "AppointmentType_fk",
+        "Members_fk"
+    ],
+    "Skills": [
+        "Skill",
+        "Source",
+        "Type"
+    ]
+}

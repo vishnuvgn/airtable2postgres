@@ -1,0 +1,20 @@
+{
+    "Members": "MEMBERS",
+    "Requirements": "REQUIREMENTS",
+    "Squadrons": "SQUADRONS",
+    "Groups": "GROUPS",
+    "AppointmentType": "APPOINTMENTTYPE",
+    "Rifle Training": "RIFLETRAINING",
+    "M249 Training": "M249TRAINING",
+    "M4 Training": "M4TRAINING",
+    "Grenade Training": "GRENADETRAINING",
+    "M240 Training": "M240TRAINING",
+    "Roles": "ROLES",
+    "Jobs": "JOBS",
+    "Vehicle Equipment": "VEHICLEEQUIPMENT",
+    "Maintenance Equipment": "MAINTENANCEEQUIPMENT",
+    "Communications Equipment": "COMMUNICATIONSEQUIPMENT",
+    "Aircraft Equipment": "AIRCRAFTEQUIPMENT",
+    "Slots": "SLOTS",
+    "Skills": "SKILLS"
+}

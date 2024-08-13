@@ -1,0 +1,170 @@
+{
+    "MEMBERS": [
+        "name",
+        "dodid",
+        "homephone",
+        "ssn",
+        "dateofbirth",
+        "datearrivedatstation",
+        "age",
+        "personalemail",
+        "militaryemail",
+        "homeaddress",
+        "gender",
+        "personaltagline",
+        "jobtitle",
+        "awss3link",
+        "completeglidememberurl",
+        "readinessscore",
+        "hasconflict",
+        "roles_fk",
+        "jobs_fk",
+        "groups_fk",
+        "squadrons_fk",
+        "members_id"
+    ],
+    "REQUIREMENTS": [
+        "requirements",
+        "members_fk",
+        "appointmenttype_fk",
+        "status",
+        "isbooked",
+        "requirements_id"
+    ],
+    "SQUADRONS": [
+        "squadron",
+        "supervisorname",
+        "squadronreadinessstatus",
+        "imageurl",
+        "groups_fk",
+        "squadrons_id"
+    ],
+    "GROUPS": [
+        "group",
+        "supervisorname",
+        "groupreadinessstatus",
+        "imageurl",
+        "groups_id"
+    ],
+    "APPOINTMENTTYPE": [
+        "name",
+        "durationminutes",
+        "appointmenttype_id"
+    ],
+    "RIFLETRAINING": [
+        "member",
+        "completeddate",
+        "expirationdate",
+        "status",
+        "members_fk",
+        "rifletraining_id"
+    ],
+    "M249TRAINING": [
+        "member",
+        "completeddate",
+        "expirationdate",
+        "status",
+        "members_fk",
+        "m249training_id"
+    ],
+    "M4TRAINING": [
+        "member",
+        "completeddate",
+        "expirationdate",
+        "status",
+        "members_fk",
+        "m4training_id"
+    ],
+    "GRENADETRAINING": [
+        "member",
+        "completeddate",
+        "expirationdate",
+        "status",
+        "members_fk",
+        "grenadetraining_id"
+    ],
+    "M240TRAINING": [
+        "member",
+        "completeddate",
+        "expirationdate",
+        "status",
+        "members_fk",
+        "m240training_id"
+    ],
+    "ROLES": [
+        "roletitle",
+        "roledescription",
+        "roles_id"
+    ],
+    "JOBS": [
+        "jobtitle",
+        "description",
+        "squadrons_fk",
+        "jobs_id"
+    ],
+    "VEHICLEEQUIPMENT": [
+        "name",
+        "description",
+        "model",
+        "manufacturer",
+        "serialnumber",
+        "acquisitiondate",
+        "condition",
+        "lastmaintenancedate",
+        "nextmaintenancedate",
+        "vehicleequipment_id"
+    ],
+    "MAINTENANCEEQUIPMENT": [
+        "name",
+        "description",
+        "model",
+        "manufacturer",
+        "serialnumber",
+        "acquisitiondate",
+        "condition",
+        "lastmaintenancedate",
+        "nextmaintenancedate",
+        "maintenanceequipment_id"
+    ],
+    "COMMUNICATIONSEQUIPMENT": [
+        "name",
+        "description",
+        "model",
+        "manufacturer",
+        "serialnumber",
+        "acquisitiondate",
+        "condition",
+        "lastmaintenancedate",
+        "nextmaintenancedate",
+        "communicationsequipment_id"
+    ],
+    "AIRCRAFTEQUIPMENT": [
+        "name",
+        "description",
+        "model",
+        "manufacturer",
+        "serialnumber",
+        "acquisitiondate",
+        "condition",
+        "lastmaintenancedate",
+        "nextmaintenancedate",
+        "aircraftequipment_id"
+    ],
+    "SLOTS": [
+        "slotid",
+        "starttime",
+        "endtime",
+        "slotcapacity",
+        "slotused",
+        "isbooked",
+        "appointmenttype_fk",
+        "members_fk",
+        "slots_id"
+    ],
+    "SKILLS": [
+        "skill",
+        "source",
+        "type",
+        "skills_id"
+    ]
+}
